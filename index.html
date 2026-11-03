@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Secret World</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Secret World</title><style>
+
 * {
     box-sizing: border-box;
 }
@@ -10,134 +10,152 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#151936,#35245c,#153e55);
-    color: white;
+    background: linear-gradient(135deg, #e0f7e9, #dff4ff, #fff0d9);
+    color: #245044;
 }
 
 header {
     text-align: center;
-    padding: 35px 15px;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #a8e6cf, #dcedc1, #b5ead7);
+    border-radius: 0 0 45px 45px;
 }
 
 header h1 {
-    font-size: 32px;
-    color: #ffe58a;
+    font-size: 34px;
+    color: #176b50;
 }
 
 header p {
-    font-size: 16px;
-    color: #ddd;
+    font-size: 17px;
+    line-height: 1.6;
 }
 
-.container {
-    padding: 15px;
-    max-width: 600px;
-    margin: auto;
-}
-
-.card {
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 18px;
-    padding: 22px;
-    margin: 18px 0;
-    text-align: center;
-}
-
-.card h2 {
-    color: #ffe58a;
+.hero {
+    font-size: 55px;
+    margin: 15px;
 }
 
 button {
-    background: #ffe58a;
-    color: #202040;
+    background: #258c68;
+    color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-size: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-button:active {
-    transform: scale(0.96);
-}
-
-.result {
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 16px;
     margin-top: 15px;
-    color: #b8ffce;
-    font-size: 17px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #176b50;
+}
+
+.container {
+    max-width: 650px;
+    margin: auto;
+    padding: 20px;
+}
+
+.section-title {
+    text-align: center;
+    color: #176b50;
+    margin-top: 35px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin: 18px 0;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    color: #258c68;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+.emoji {
+    font-size: 40px;
+}
+
+#activities {
+    display: none;
 }
 
 footer {
     text-align: center;
     padding: 25px;
-    color: #ccc;
+    background: #c7ebd7;
+    margin-top: 30px;
 }
-</style></head><body><header>
-    <h1>🌍 The Secret World</h1>
-    <p>Explore • Discover • Learn • Grow</p>
-    <p>✨ A new adventure is waiting for you!</p>
-</header><div class="container"><div class="card">
-    <h2>🧠 Brain Challenge</h2>
-    <p>Test your brain with a fun question!</p>
-    <h3>What has keys but cannot open locks?</h3>
-    <button onclick="checkAnswer()">Show Answer</button>
-    <div class="result" id="answer"></div>
-</div>
 
-<div class="card">
-    <h2>🔐 Secret Discovery</h2>
-    <p>Discover a new fact about the world!</p>
-    <button onclick="showFact()">Discover Now</button>
-    <div class="result" id="fact"></div>
-</div>
-
-<div class="card">
-    <h2>🎨 Creative Corner</h2>
-    <p>Imagine something wonderful!</p>
-    <h3>What would you invent to make the world better?</h3>
-    <input id="idea" type="text" placeholder="Write your idea here..."
-    style="padding:12px;width:100%;border-radius:10px;border:none;">
-    <br>
-    <button onclick="saveIdea()">Submit Idea</button>
-    <div class="result" id="ideaResult"></div>
-</div>
-
-</div><footer>
-    💜 Every day is a new opportunity to learn!
-    <br><br>
-    © 2026 The Secret World
+</style></head><body><header><div class="hero">🌍🌸🌿</div><h1>THE SECRET WORLD</h1><p>
+A little world full of big discoveries.
+<br>
+Explore • Learn • Imagine • Grow
+</p><button onclick="startExploring()">
+✨ START EXPLORING
+</button></header><div class="container" id="activities"><h2 class="section-title">✨ Choose Your Adventure</h2><div class="card">
+<div class="emoji">🧠</div>
+<h2>Mind Power</h2>
+<p>Challenge your brain with fun puzzles and memory games!</p>
+<button onclick="mindGame()">Play Challenge</button>
+<p id="mindResult"></p>
+</div><div class="card">
+<div class="emoji">🔍</div>
+<h2>Mystery Zone</h2>
+<p>Solve interesting riddles and discover hidden answers!</p>
+<button onclick="mysteryGame()">Solve Mystery</button>
+<p id="mysteryResult"></p>
+</div><div class="card">
+<div class="emoji">🎨</div>
+<h2>Creative World</h2>
+<p>Use your imagination and create something wonderful!</p>
+<button onclick="creativeGame()">Get Challenge</button>
+<p id="creativeResult"></p>
+</div><div class="card">
+<div class="emoji">🌱</div>
+<h2>Nature Corner</h2>
+<p>Discover amazing secrets of our beautiful planet!</p>
+<button onclick="natureGame()">Discover Now</button>
+<p id="natureResult"></p>
+</div></div><footer>
+🌸 Keep Exploring, Keep Learning! 🌸
+<br><br>
+© 2026 The Secret World
 </footer><script>
 
-function checkAnswer() {
-    document.getElementById("answer").innerHTML =
-    "🎉 A Piano! It has keys but cannot open locks.";
+function startExploring() {
+    document.getElementById("activities").style.display = "block";
+    document.getElementById("activities").scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
-let facts = [
-    "🐙 An octopus has three hearts!",
-    "🌞 Sunlight takes about 8 minutes to reach Earth.",
-    "🦋 Butterflies taste using their feet!",
-    "🐝 Bees communicate through dancing!",
-    "🌈 A rainbow is actually a full circle!"
-];
-
-function showFact() {
-    let random = Math.floor(Math.random() * facts.length);
-    document.getElementById("fact").innerHTML = facts[random];
+function mindGame() {
+    document.getElementById("mindResult").innerHTML =
+    "🧠 Memory Challenge: Remember these words — Sun, Flower, River. Now repeat them without looking!";
 }
 
-function saveIdea() {
-    let idea = document.getElementById("idea").value;
+function mysteryGame() {
+    document.getElementById("mysteryResult").innerHTML =
+    "🔍 Riddle: What has a face and two hands but no arms or legs? Answer: A Clock!";
+}
 
-    if (idea.trim() === "") {
-        document.getElementById("ideaResult").innerHTML =
-        "✏️ Please write your idea first!";
-    } else {
-        document.getElementById("ideaResult").innerHTML =
-        "🌟 Wonderful idea! Keep imagining!";
-    }
+function creativeGame() {
+    document.getElementById("creativeResult").innerHTML =
+    "🎨 Challenge: Imagine a garden on the Moon. What three things would you add?";
+}
+
+function natureGame() {
+    document.getElementById("natureResult").innerHTML =
+    "🌱 Did you know? Trees help clean the air by absorbing carbon dioxide!";
 }
 
 </script></body>
