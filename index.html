@@ -1,11 +1,144 @@
 <!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Secret World</title>
-</head>
-<body>
-    <h1>🌍 Welcome to The Secret World!</h1>
-    <p>Discover something new every day.</p>
-</body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Secret World</title><style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#151936,#35245c,#153e55);
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 35px 15px;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #ffe58a;
+}
+
+header p {
+    font-size: 16px;
+    color: #ddd;
+}
+
+.container {
+    padding: 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 18px;
+    padding: 22px;
+    margin: 18px 0;
+    text-align: center;
+}
+
+.card h2 {
+    color: #ffe58a;
+}
+
+button {
+    background: #ffe58a;
+    color: #202040;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.result {
+    margin-top: 15px;
+    color: #b8ffce;
+    font-size: 17px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #ccc;
+}
+</style></head><body><header>
+    <h1>🌍 The Secret World</h1>
+    <p>Explore • Discover • Learn • Grow</p>
+    <p>✨ A new adventure is waiting for you!</p>
+</header><div class="container"><div class="card">
+    <h2>🧠 Brain Challenge</h2>
+    <p>Test your brain with a fun question!</p>
+    <h3>What has keys but cannot open locks?</h3>
+    <button onclick="checkAnswer()">Show Answer</button>
+    <div class="result" id="answer"></div>
+</div>
+
+<div class="card">
+    <h2>🔐 Secret Discovery</h2>
+    <p>Discover a new fact about the world!</p>
+    <button onclick="showFact()">Discover Now</button>
+    <div class="result" id="fact"></div>
+</div>
+
+<div class="card">
+    <h2>🎨 Creative Corner</h2>
+    <p>Imagine something wonderful!</p>
+    <h3>What would you invent to make the world better?</h3>
+    <input id="idea" type="text" placeholder="Write your idea here..."
+    style="padding:12px;width:100%;border-radius:10px;border:none;">
+    <br>
+    <button onclick="saveIdea()">Submit Idea</button>
+    <div class="result" id="ideaResult"></div>
+</div>
+
+</div><footer>
+    💜 Every day is a new opportunity to learn!
+    <br><br>
+    © 2026 The Secret World
+</footer><script>
+
+function checkAnswer() {
+    document.getElementById("answer").innerHTML =
+    "🎉 A Piano! It has keys but cannot open locks.";
+}
+
+let facts = [
+    "🐙 An octopus has three hearts!",
+    "🌞 Sunlight takes about 8 minutes to reach Earth.",
+    "🦋 Butterflies taste using their feet!",
+    "🐝 Bees communicate through dancing!",
+    "🌈 A rainbow is actually a full circle!"
+];
+
+function showFact() {
+    let random = Math.floor(Math.random() * facts.length);
+    document.getElementById("fact").innerHTML = facts[random];
+}
+
+function saveIdea() {
+    let idea = document.getElementById("idea").value;
+
+    if (idea.trim() === "") {
+        document.getElementById("ideaResult").innerHTML =
+        "✏️ Please write your idea first!";
+    } else {
+        document.getElementById("ideaResult").innerHTML =
+        "🌟 Wonderful idea! Keep imagining!";
+    }
+}
+
+</script></body>
 </html>
