@@ -105,8 +105,23 @@ Explore • Learn • Imagine • Grow
 <div class="emoji">🧠</div>
 <h2>Mind Power</h2>
 <p>Challenge your brain with fun puzzles and memory games!</p>
-<button onclick="mindGame()">Play Challenge</button>
-<p id="mindResult"></p>
+<div id="memoryGame">
+    <h3>🧠 Memory Challenge</h3>
+    <p>Choose Your Level:</p>
+
+    <button onclick="startMemoryGame('easy')">🟢 Easy</button>
+    <button onclick="startMemoryGame('medium')">🟡 Medium</button>
+    <button onclick="startMemoryGame('hard')">🔴 Hard</button>
+
+    <p id="memoryResult"></p>
+
+    <input type="text" id="memoryAnswer"
+    placeholder="Type words separated by commas">
+
+    <button onclick="checkMemory()">Submit Answer</button>
+
+    <p id="memoryScore"></p>
+</div>
 </div><div class="card">
 <div class="emoji">🔍</div>
 <h2>Mystery Zone</h2>
@@ -156,6 +171,45 @@ function creativeGame() {
 function natureGame() {
     document.getElementById("natureResult").innerHTML =
     "🌱 Did you know? Trees help clean the air by absorbing carbon dioxide!";
+}
+let memoryWords = [];
+let memoryTimer;
+
+function startMemoryGame(level) {
+    if (level === "easy") {
+        memoryWords = ["Sun", "Flower", "River"];
+    } else if (level === "medium") {
+        memoryWords = ["Moon", "Tree", "Book", "Star", "Cloud"];
+    } else {
+        memoryWords = ["Apple", "Ocean", "Bird", "Mountain", "Pencil", "Rainbow", "Garden"];
+    }
+
+    document.getElementById("memoryResult").innerHTML =
+        "Remember these words: " + memoryWords.join(", ");
+
+    clearTimeout(memoryTimer);
+
+    memoryTimer = setTimeout(function() {
+        document.getElementById("memoryResult").innerHTML =
+            "Words hidden! Type the words you remember below.";
+    }, 5000);
+}
+
+function checkMemory() {
+    let answer = document.getElementById("memoryAnswer").value.toLowerCase();
+
+    let userWords = answer.split(",").map(word => word.trim());
+
+    let score = 0;
+
+    memoryWords.forEach(function(word) {
+        if (userWords.includes(word.toLowerCase())) {
+            score++;
+        }
+    });
+
+    document.getElementById("memoryScore").innerHTML =
+        "⭐ Your Score: " + score + " / " + memoryWords.length;
 }
 
 </script></body>
